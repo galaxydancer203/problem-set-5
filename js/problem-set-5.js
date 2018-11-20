@@ -27,6 +27,21 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+  //var p=document.getElementById("mario-easy-output");
+  height = prompt ("Please enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ")
+if (1 >= height <= 23){
+  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ")
+}
+
+else
+
+
+
+
+
+
+
+
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
