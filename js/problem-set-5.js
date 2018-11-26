@@ -27,19 +27,19 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-  //var p=document.getElementById("mario-easy-output");
+  //  var p=document.getElementById("mario-easy-output");
+
   height = prompt ("Please enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ")
-if (1 >= height <= 23){
-  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ")
+if ( height > 1 || height < 23){
+  var p=document.getElementById("mario-easy-output");
+  p.innerHTML = "Hello, AP Computer Science Principles!"
+
 }
-
-else
-
-
-
-
-
-
+//if (1 < height) and (){
+//  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.)}
+else {
+  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.")
+}
 
 
 
@@ -204,6 +204,9 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+windspeed = prompt ("Please enter a windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ")
+
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
