@@ -32,8 +32,7 @@ function mario() {
   height = prompt ("Please enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ")
 if ( height > 1 || height < 23){
   var p=document.getElementById("mario-easy-output");
-  p.innerHTML = "Hello, AP Computer Science Principles!"
-
+  p.innerHTML = "Hello, AP Computer Science Principles!";
 }
 //if (1 < height) and (){
 //  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.)}
@@ -125,6 +124,15 @@ function marioAgain() {
 
 function credit() {
 
+
+
+
+
+
+
+
+
+card = Number(card);
   //////////// DO NOT MODIFY
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
@@ -205,10 +213,37 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
-windspeed = prompt ("Please enter a windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ")
+windspeed = prompt ("Please enter a windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ");
+windspeed = Number(windspeed)
+while (windspeed < 0) {
+  windspeed = prompt ("Please enter a windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ");
+}
+if (windspeed >= 157){
+  var p = document.getElementById("hurricane-output");
+  p.innerHTML = "Category 5 Hurricane."; }
+  if (windspeed >= 130 && windspeed <= 156){
+    var p = document.getElementById("hurricane-output");
+    p.innerHTML = "Category 4 Hurricane.";
+}
+if (windspeed >= 111 && windspeed <= 129){
+  var p = document.getElementById("hurricane-output");
+  p.innerHTML = "Category 3 Hurricane.";
+}
+if (windspeed >= 96 && windspeed <= 110){
+  var p = document.getElementById("hurricane-output");
+  p.innerHTML = "Category 2 Hurricane.";
+}
+if (windspeed >= 39 && windspeed <= 73){
+  var p = document.getElementById("hurricane-output");
+  p.innerHTML = "Tropical Storm.";
+}
+if (windspeed >= 0 && windspeed <= 38){
+  var p = document.getElementById("hurricane-output");
+  p.innerHTML = "The skies are calm...";
+}
 
 
-  ///////////////////////////////// DO NOT MODIFY
+////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
 }
@@ -250,6 +285,13 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+let s1
+   s1 = prompt ("Please enter the first score.");
+   s1 = Number(s1)
+   while (s1 <= 0 && s1 >= 10) {
+     windspeed = prompt ("aaaaaaaaaaaaaaInvalid number for the first score. Please enter a interger between 0 to 10 for the first score. ");
+   }
+
 
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
