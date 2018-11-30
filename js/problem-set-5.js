@@ -286,11 +286,79 @@ function gymnastics() {
    *       scores.push(secondScore);  // will likely be different than mine
    */
 let s1
-   s1 = prompt ("Please enter the first score.");
-   s1 = Number(s1)
-   while (s1 <= 0 && s1 >= 10) {
-     windspeed = prompt ("aaaaaaaaaaaaaaInvalid number for the first score. Please enter a interger between 0 to 10 for the first score. ");
+let s2
+let s3
+let s4
+let s5
+let s6
+let discard = []
+   s1 = prompt ("Please enter the first judge's score.");
+
+   while (s1 < 0 || s1 > 10 || s1*10%1!=0) {
+     s1 = prompt ("Invalid number for the first score. Please enter a interger between 0 to 10 for the first score. ");
+
    }
+   s1 = Number(s1);
+   scores.push(s1);
+
+  s2 = prompt ("Please enter the second judge's score.");
+
+   while (s2 < 0 || s2 > 10 || s2*10%1!=0) {
+     s2 = prompt ("Invalid number for the second score. Please enter a interger between 0 to 10 for the second score. ");
+   }
+     s2 = Number(s2);
+   scores.push(s2);
+
+   s3 = prompt ("Please enter the third judge's score.");
+
+     while (s3 < 0 || s3 > 10 || s3*10%1!=0) {
+       s3 = prompt ("Invalid number for the third score. Please enter a interger between 0 to 10 for the third score. ");
+     }
+         s3 = Number(s3);
+     scores.push(s3);
+
+ s4 = prompt ("Please enter the fourth judge's score.");
+
+   while (s4 < 0 || s4 > 10 || s4*10%1!=0) {
+     s4 = prompt ("Invalid number for the fourth score. Please enter a interger between 0 to 10 for the fourth score. ");
+   }
+     s4 = Number(s4);
+   scores.push(s4);
+
+   s5 = prompt ("Please enter the fifth judge's score.");
+    s5 = Number(s5);
+     while (s5 < 0 || s5 > 10 || s5*10%1!=0) {
+       s5 = prompt ("Invalid number for the fifth score. Please enter a interger between 0 to 10 for the fifth score. ");
+     }
+         s5 = Number(s5);
+     scores.push(s5);
+
+     s6 = prompt ("Please enter the sixth judge's score.");
+
+       while (s6 < 0 || s6 > 10 || s6*10%1!=0) {
+         s6 = prompt ("Invalid number for the sixth score. Please enter a interger between 0 to 10 for the sixth score. ");
+       }
+           s6 = Number(s6);
+       scores.push(s6);
+
+discard.push(Math.min(...scores));
+discard.push(Math.max(...scores));
+
+
+
+
+
+
+
+
+
+
+
+
+
+   var p = document.getElementById("gymnastics-output");
+     p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";``
+   p.innerHTML += "Score: " + (scores  - (Math.min(...scores)) - (Math.max(...scores)))/4;
 
 
   /////////////////////////////// DO NOT MODIFY
