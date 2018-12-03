@@ -343,22 +343,11 @@ let discard = []
 
 discard.push(Math.min(...scores));
 discard.push(Math.max(...scores));
-
-
-
-
-
-
-
-
-
-
-
-
-
+scores.splice(Math.min(...scores));
+scores.splice(Math.max(...scores));
    var p = document.getElementById("gymnastics-output");
      p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";
-                   p.innerHTML += "Score: " + Number(scores - {discard[0]} -{discard[1]})/4;
+                   p.innerHTML += "Score: " + Number(scores/4);
 
 
   /////////////////////////////// DO NOT MODIFY
