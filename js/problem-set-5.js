@@ -343,7 +343,7 @@ let discard = []
 
 discard.push(Math.min(...scores));
 discard.push(Math.max(...scores));
-  out = Number(discard[0] + discard[1])
+  out = discard[0] + discard[1]
   
   
   
