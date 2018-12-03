@@ -292,7 +292,6 @@ let s4
 let s5
 let s6
 let discard = []
-let out = 0
    s1 = prompt ("Please enter the first judge's score.");
 
    while (s1 < 0 || s1 > 10 || s1*10%1!=0) {
@@ -344,13 +343,13 @@ let out = 0
 
 discard.push(Math.min(...scores));
 discard.push(Math.max(...scores));
-out = discard[0] + discard[1]
   
-  
+let scoreFinal = (scores.reduce((a,b) => a + b, 0) - out)/(scores.length-2); 
+
   
    var p = document.getElementById("gymnastics-output");
      p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";
-                   p.innerHTML += "Score: " + ((score - out)/4);
+                   p.innerHTML += "Score: " + scoreFinal;
 
 
   /////////////////////////////// DO NOT MODIFY
