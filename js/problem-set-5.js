@@ -357,7 +357,7 @@ discard.push(Math.max(...scores));
 
 
    var p = document.getElementById("gymnastics-output");
-     p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";``
+     p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";
                    p.innerHTML += "Score: " + (scores - {discard[0]} -{discard[1]})/4;
 
 
