@@ -123,22 +123,25 @@ function marioAgain() {
  */
 
 function credit() {
-
-
-
-
-
-
-
-
-
-card = Number(card);
   //////////// DO NOT MODIFY
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
+let checkc = 0;
+let digit = 0;
+
+
   // WRITE YOUR EXERCISE 3 CODE HERE
 
+
+  card = prompt ("Enter your credit card number to check.")
+console.log(card.charAt(0));
+
+
+
+
+
+  card = Number(card);
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -177,7 +180,31 @@ card = Number(card);
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
+  let guess = 0;
+  let number= 0;
+  let attempt = 0;
 
+
+number = (Math.floor(Math.random()* 1000) + 1);
+
+guess = prompt ("Please enter your guess. The range is a random integer between 1 to 1,000.")
+attempt += 1
+while (guess != number){
+  if (guess > 1000 || guess < 1 || guess%1 != 0)
+  guess = prompt ("Invalid guess. Try a valid number between 1 to 1,000.")
+if (guess < number) {
+  guess = prompt ("Guess too small. Try another number between 1 to 1,000.")
+  attempt += 1
+}
+if (guess > number) {
+ guess = prompt ("Guess too big. Try another number between 1 to 1,000.")
+ attempt += 1
+}
+}
+if (guess == number) {
+ var p = document.getElementById("guess-output");
+ p.innerHTML = "You did it! The random integer was " + number + " and you took " + attempt + " tries or try (if you somehow got the random interger in your first guess) to figure out the random integer."
+}
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -292,35 +319,30 @@ let s4
 let s5
 let s6
 let discard = []
-let out
+let out = 0
    s1 = prompt ("Please enter the first judge's score.");
 
-   while (s1 < 0 || s1 > 10 || s1*10%1!=0) {
+   while (s1 < 0 || s1 > 10 ) {
      s1 = prompt ("Invalid number for the first score. Please enter a interger between 0 to 10 for the first score. ");
-
    }
    s1 = Number(s1);
    scores.push(s1);
-
   s2 = prompt ("Please enter the second judge's score.");
-
-   while (s2 < 0 || s2 > 10 || s2*10%1!=0) {
+   while (s2 < 0 || s2 > 10 ) {
      s2 = prompt ("Invalid number for the second score. Please enter a interger between 0 to 10 for the second score. ");
    }
      s2 = Number(s2);
    scores.push(s2);
 
    s3 = prompt ("Please enter the third judge's score.");
-
-     while (s3 < 0 || s3 > 10 || s3*10%1!=0) {
+     while (s3 < 0 || s3 > 10) {
        s3 = prompt ("Invalid number for the third score. Please enter a interger between 0 to 10 for the third score. ");
      }
          s3 = Number(s3);
      scores.push(s3);
 
  s4 = prompt ("Please enter the fourth judge's score.");
-
-   while (s4 < 0 || s4 > 10 || s4*10%1!=0) {
+   while (s4 < 0 || s4 > 10 ) {
      s4 = prompt ("Invalid number for the fourth score. Please enter a interger between 0 to 10 for the fourth score. ");
    }
      s4 = Number(s4);
@@ -328,7 +350,7 @@ let out
 
    s5 = prompt ("Please enter the fifth judge's score.");
     s5 = Number(s5);
-     while (s5 < 0 || s5 > 10 || s5*10%1!=0) {
+     while (s5 < 0 || s5 > 10 ) {
        s5 = prompt ("Invalid number for the fifth score. Please enter a interger between 0 to 10 for the fifth score. ");
      }
          s5 = Number(s5);
@@ -336,7 +358,7 @@ let out
 
      s6 = prompt ("Please enter the sixth judge's score.");
 
-       while (s6 < 0 || s6 > 10 || s6*10%1!=0) {
+       while (s6 < 0 || s6 > 10) {
          s6 = prompt ("Invalid number for the sixth score. Please enter a interger between 0 to 10 for the sixth score. ");
        }
            s6 = Number(s6);
@@ -345,14 +367,13 @@ let out
 discard.push(Math.min(...scores));
 discard.push(Math.max(...scores));
   out = discard[0] + discard[1]
-let scoreFinal = (scores.reduce((a,b) => a + b, 0) - out)/(scores.length-2); 
+let scoreFinal = (scores.reduce((a,b) => a + b, 0) - out)/(scores.length-2);
 
-  
    var p = document.getElementById("gymnastics-output");
      p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";
-                   p.innerHTML += "Score: " + scoreFinal;
+     p.innerHTML += "Score: " + scoreFinal.toFixed(2) ;
 
-
+//ffff
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -380,7 +401,7 @@ let scoreFinal = (scores.reduce((a,b) => a + b, 0) - out)/(scores.length-2);
  */
 
 function reportCard() {
-
+//////////////////
   ///////////////////////// DO NOT MODIFY
   let testTotal = 0; ////// DO NOT MODIFY
   let quizTotal = 0; ////// DO NOT MODIFY
@@ -392,13 +413,92 @@ function reportCard() {
    *       should be representative of the sum of the test scores, quiz
    *       scores, and homework scores the user enters, respectively.
    */
-
+   let testA= 0;
+let userinput = 0;
+let grade = 0;
+let homeworkA =0;
+let quizA = 0;
   ///////////////////// DO NOT MODIFY
   let tests = 0; ////// DO NOT MODIFY
   let quizzes = 0; //// DO NOT MODIFY
   let homeworks = 0; // DO NOT MODIFY
   ///////////////////// DO NOT MODIFY
+  let movingon = false;
+while (!movingon) {
+  userinput = prompt("Please enter a valid test score between 0 to 100. Enter -1 when done entering test scores.");
+  if (userinput == -1) {
+    movingon = true;
 
+  } else {
+    if (userinput >= 0 && userinput <= 100) {
+    testTotal += userinput;
+    tests += 1;
+    } else {
+       alert("Invalid test score entered! ");
+       }
+  }
+}
+let qmovingon = false;
+while (!qmovingon) {
+userinput = prompt("Please enter a valid quiz score between 0 to 100. Enter -1 when done entering quiz scores.");
+if (userinput == -1) {
+  qmovingon = true;
+} else {
+  if (userinput >= 0 && userinput <= 100) {
+  quizTotal += userinput;
+  quizzes += 1;
+  } else {
+     alert("Invalid quiz score entered! ");
+     }
+}
+}
+let hmovingon = false;
+while (!hmovingon) {
+userinput = prompt("Please enter a valid homework score between 0 to 100. Enter -1 when done entering homework scores.");
+if (userinput == -1) {
+  hmovingon = true;
+} else {
+  if (userinput >= 0 && userinput <= 100) {
+  homeworkTotal += userinput;
+  homeworks += 1;
+  } else {
+     alert("Invalid homework score entered! ");
+     }
+}
+}
+
+testA = (testTotal/tests);
+
+quizA = (quizTotal/quizzes);
+
+homeworkA = (homeworkTotal/homeworks);
+
+grade = (testA*0.6)+((quizA * 0.3)+(homeworkA*0.1));
+var p = document.getElementById("report-card-output");
+  p.innerHTML = "Tests: " + testA.toFixed(2) +  "</br>";
+  p.innerHTML += "Quizzes: " + quizA.toFixed(2) +  "</br>";
+  p.innerHTML += "Homework: " + homeworkA.toFixed(2) +  "</br>";
+  p.innerHTML += "Grade: " + grade.toFixed(2);
+/*
+while (prompt != -1){
+  userinput= prompt("Please enter the first test score between 0 to 100. Enter -1 when done entering test scores.");
+
+  if (testTotal >= 0  || testTotal <= 100){
+    testTotal += prompt("Please enter the next test score between 0 to 100. Enter -1 when done entering test scores.");
+    tests += 1;
+  }
+  if  (testTotal <= -2  || testTotal > 100 ){
+      testTotal= prompt("Invalid test score. Please enter a valid test score between 0 to 100.");
+  }
+
+}
+if (testTotal == -1){
+  testTotal += 1;
+  movingon += 1;
+  console.log(22222222222222);
+}
+//uizTotal = prompt("asdaaddaadadadadaddaadadadadad Enter -1 when done entering test scores.");
+*/
   /*
    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
    *       representative of the number of tests, quizzes, and homework
