@@ -45,16 +45,14 @@ height = prompt ("Please enter a integer between 1 to 23 for the height value of
       height = Number(height)
  for  (i= 0; i < height; i ++ ){
    for (l = 0 ; l < height+1 ; l ++){
-if (l > (height -i)-2){
-  outputmario +=block;
-}else{
-  outputmario += space;
-
-}
-
-   }
-outputmario += "</br>";
- }
+    if (l > (height -i)-2){
+      outputmario +=block;
+    }else{
+      outputmario += space;
+      }
+    }
+    outputmario += "</br>";
+  }
 
 
 console.log(outputmario);
@@ -101,6 +99,47 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
+  let space = "&nbsp";
+  let block = "#";
+  let i
+  let l
+  let outputmario2= "";
+  let going = false;
+  height = prompt ("Please enter a integer between 1 to 23 for the height value of a Mario-style pyramid. ");
+  while (!going) {
+    if  ( height > 0 && height <= 23){
+      going = true
+    }
+    if ( height <= 0 || height > 23){
+      height = prompt ("Not a acceptable integer you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.");
+    }
+  }
+      height = Number(height)
+  for  (i= 0; i < height; i ++ ){
+   for (l = 0 ; l < height+1 ; l ++){
+     if (l > (height -i)-2){
+       outputmario2 +=block+block;
+     }else{
+       outputmario2 += space+space ;
+       if (l > (height -i)-2){
+         outputmario2 +=space + space
+     }
+     // outputmario2 += space+space;
+  ;
+     }
+   }
+   outputmario2 += "</br>";
+  }
+
+
+  console.log(outputmario2);
+
+
+
+  var p = document.getElementById("mario-hard-output");
+  p.innerHTML = "<code>" + outputmario2 + "</code>";
+
+
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
