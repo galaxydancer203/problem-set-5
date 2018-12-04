@@ -27,18 +27,43 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-  //  var p=document.getElementById("mario-easy-output");
+  let space = "&nbsp";
+  let block = "#";
+  let i
+  let l
+  let outputmario= "";
+let going = false;
+height = prompt ("Please enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ");
+  while (!going) {
+    if  ( height > 0 && height <= 23){
+      going = true
+    }
+    if ( height <= 0 || height > 23){
+      height = prompt ("Not a acceptable integer you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.");
+    }
+  }
+      height = Number(height)
+ for  (i= 0; i < height; i ++ ){
+   for (l = 0 ; l < height+1 ; l ++){
+if (l > (height -i)-2){
+  outputmario +=block;
+}else{
+  outputmario += space;
 
-  height = prompt ("Please enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid. ")
-if ( height > 1 || height < 23){
-  var p=document.getElementById("mario-easy-output");
-  p.innerHTML = "Hello, AP Computer Science Principles!";
 }
-//if (1 < height) and (){
-//  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.)}
-else {
-  height = prompt ("Not a acceptable interger you have chosen. Enter a integer between 1 to 23 for the height value of a Mario-style half-pyramid.")
-}
+
+   }
+outputmario += "</br>";
+ }
+
+
+console.log(outputmario);
+
+
+
+  var p = document.getElementById("mario-easy-output");
+  p.innerHTML = "<code>" + outputmario + "</code>";
+
 
 
 
@@ -127,11 +152,11 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-let checkc = 0;
-let digit = 0;
-
-
   // WRITE YOUR EXERCISE 3 CODE HERE
+
+  let checkc = 0;
+  let digit = 0;
+
 
 
   card = prompt ("Enter your credit card number to check.")
@@ -186,7 +211,7 @@ function guess() {
 
 
 number = (Math.floor(Math.random()* 1000) + 1);
-
+console.log(number);
 guess = prompt ("Please enter your guess. The range is a random integer between 1 to 1,000.")
 attempt += 1
 while (guess != number){
