@@ -54,16 +54,8 @@ height = prompt ("Please enter a integer between 1 to 23 for the height value of
     outputmario += "</br>";
   }
 
-
-console.log(outputmario);
-
-
-
   var p = document.getElementById("mario-easy-output");
   p.innerHTML = "<code>" + outputmario + "</code>";
-
-
-
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -118,28 +110,23 @@ function marioAgain() {
   for  (i= 0; i < height; i ++ ){
    for (l = 0 ; l < height+1 ; l ++){
      if (l > (height -i)-2){
-       outputmario2 +=block+block;
+       outputmario2 +=block;
      }else{
-       outputmario2 += space+space ;
-       if (l > (height -i)-2){
-         outputmario2 +=space + space
-     }
-     // outputmario2 += space+space;
-  ;
+       outputmario2 += space;
      }
    }
-   outputmario2 += "</br>";
-  }
+   outputmario2 += space + space ;
+for (l = 0 ; l < height+1 ; l ++){
+  if (l < i +2){
+outputmario2 += block;
+}
 
-
-  console.log(outputmario2);
-
-
+}
+outputmario2+= "</br>";
+}
 
   var p = document.getElementById("mario-hard-output");
   p.innerHTML = "<code>" + outputmario2 + "</code>";
-
-
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -192,20 +179,57 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
+  let cardsum = 0;
+  let isSecond = false;
+var digit;
+let numberBase = "0".charCodeAt(0);
+var userinput;
+let clength;
 
-  let checkc = 0;
-  let digit = 0;
+// do {
+// userinput= parseInt(prompt("Enter your credit card number to check."));
+// } while (isNaN(userinput));
+userinput=prompt("Enter your credit card number to check.");
+clength = userinput.length;
+console.log(userinput.length);
+for (i =clength -1; i >= 0; i--){
+ digit = userinput.charCodeAt(i)- numberBase;
+  if (isSecond){
+    digit *= 2;
+  }
+  if (digit >=10){
+    digit -= 9;
+  }
+  cardsum +=digit;
+  isSecond = !isSecond;
+}
 
+if (cardsum % 10 != 0){
+  var p = document.getElementById("credit-output");
+  p.innerHTML = '<img src=\'../problem-set-5/images/invalid.png\'>' ;
+} else if(!(clength == 13 || clength == 15 || clength == 16)) {
+  var p = document.getElementById("credit-output");
+  p.innerHTML ="Invalid."
+}
 
+if ((userinput.substring(0,2) == 37 || userinput.substring(0,2) == 34 ) && clength == 15){
+  var p = document.getElementById("credit-output");
+  p.innerHTML = '<img src=\'../problem-set-5/images/amex.png\'>' ;
+}
+else if ((userinput.substring(0,2) == 51 || userinput.substring(0,2) == 52 || userinput.substring(0,2) == 53 || userinput.substring(0,2) == 54 || userinput.substring(0,2) == 55 ) && clength == 16){
+  var p = document.getElementById("credit-output");
+  p.innerHTML = '<img src=\'../problem-set-5/images/mastercard.png\'>' ;
+}
+else if ((userinput.substring(0,1) == 4) && (clength == 16 || clength == 13)){
+  var p = document.getElementById("credit-output");
+  p.innerHTML = '<img src=\'../problem-set-5/images/visa.png\'>' ;
+}else {
+  var p = document.getElementById("credit-output");
+p.innerHTML ="Invalid."
 
-  card = prompt ("Enter your credit card number to check.")
-console.log(card.charAt(0));
+}
 
-
-
-
-
-  card = Number(card);
+  card = Number(userinput);
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -247,10 +271,7 @@ function guess() {
   let guess = 0;
   let number= 0;
   let attempt = 0;
-
-
 number = (Math.floor(Math.random()* 1000) + 1);
-console.log(number);
 guess = prompt ("Please enter your guess. The range is a random integer between 1 to 1,000.")
 attempt += 1
 while (guess != number){
@@ -305,14 +326,17 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
 
 windspeed = prompt ("Please enter a windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ");
-windspeed = Number(windspeed)
-while (windspeed < 0) {
-  windspeed = prompt ("Please enter a windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ");
+windspeed = Number(windspeed);
+
+while (windspeed < 0 ) {
+  windspeed = prompt ("Please enter a valid windspeed in MPH for the hurricane that you want to test using the Saffir-Simpson scale in MPH. ");
+  windspeed = Number(windspeed);
 }
 if (windspeed >= 157){
   var p = document.getElementById("hurricane-output");
-  p.innerHTML = "Category 5 Hurricane."; }
-  if (windspeed >= 130 && windspeed <= 156){
+  p.innerHTML = "Category 5 Hurricane.";
+ }
+if (windspeed >= 130 && windspeed <= 156){
     var p = document.getElementById("hurricane-output");
     p.innerHTML = "Category 4 Hurricane.";
 }
@@ -332,7 +356,6 @@ if (windspeed >= 0 && windspeed <= 38){
   var p = document.getElementById("hurricane-output");
   p.innerHTML = "The skies are calm...";
 }
-
 
 ////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
@@ -421,23 +444,19 @@ let out = 0
      scores.push(s5);
 
      s6 = prompt ("Please enter the sixth judge's score.");
-
        while (s6 < 0 || s6 > 10) {
          s6 = prompt ("Invalid number for the sixth score. Please enter a interger between 0 to 10 for the sixth score. ");
        }
            s6 = Number(s6);
        scores.push(s6);
-
 discard.push(Math.min(...scores));
 discard.push(Math.max(...scores));
   out = discard[0] + discard[1]
 let scoreFinal = (scores.reduce((a,b) => a + b, 0) - out)/(scores.length-2);
-
    var p = document.getElementById("gymnastics-output");
      p.innerHTML = "Discarded: " + discard[0] + ", " + discard[1]+ "</br>";
      p.innerHTML += "Score: " + scoreFinal.toFixed(2) ;
 
-//ffff
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
